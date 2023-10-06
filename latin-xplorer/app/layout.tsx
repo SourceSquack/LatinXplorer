@@ -1,28 +1,39 @@
-import { Urbanist } from "next/font/google";
-import type { Metadata } from "next";
-import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkProvider } from '@clerk/nextjs'
+import { Inter } from 'next/font/google'
 
-import "./globals.css";
+import { ModalProvider } from '@/providers/modal-provider'
+import { ToastProvider } from '@/providers/toast-provider'
+import { ThemeProvider } from '@/providers/theme-provider'
 
-const urbanist = Urbanist({ subsets: ["latin"] });
+import './globals.css'
 
-export const metadata: Metadata = {
-  title:
-    "LatinXplorer - Discover and Explore Tropical Destinations in Latin America",
-  description:
-    "LatinXplorer is your comprehensive guide to discovering and exploring the most fascinating tropical destinations in Latin America, including Medellín, Mexico City, Buenos Aires, and many more. Plan your trip with detailed information, personalized itineraries, and securely book tour services. Embark on a unique adventure in the lush nature and rich culture of Latin America with LatinXplorer!",
-};
+const inter = Inter({ subsets: ['latin'] })
 
-export default function RootLayout({
+export const metadata = {
+  title: 'Dashboard',
+  description: 'E-Commerce Dashboard',
+}
+
+export default async function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={urbanist.className}>{children}</body>
+        <body className={inter.className}>
+          <ThemeProvider 
+            attribute="class" 
+            defaultTheme="system" 
+            enableSystem
+          >
+            <ToastProvider />
+            <ModalProvider />
+            {children}
+          </ThemeProvider>
+        </body>
       </html>
     </ClerkProvider>
-  );
+  )
 }
