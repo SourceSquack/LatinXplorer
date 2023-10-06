@@ -35,6 +35,7 @@ const formSchema = z.object({
   categoryId: z.string().min(1),
   colorId: z.string().min(1),
   sizeId: z.string().min(1),
+  inventary: z.coerce.number().min(1),
   isFeatured: z.boolean().default(false).optional(),
   isArchived: z.boolean().default(false).optional()
 });
@@ -77,6 +78,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
     categoryId: '',
     colorId: '',
     sizeId: '',
+    Inventory: 0,
     isFeatured: false,
     isArchived: false,
   }
@@ -250,6 +252,19 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                       ))}
                     </SelectContent>
                   </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="inventary"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Inventary</FormLabel>
+                  <FormControl>
+                    <Input type="number" disabled={loading} placeholder="55" {...field} />
+                  </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
