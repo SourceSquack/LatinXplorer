@@ -1,11 +1,9 @@
+import Image from 'next/image'
 
-import LandingPage from "@/components/ui/landing";
-const SetupPage = () => {
+export default function Home() {
   return (
-    <div className="p-4">
-      <LandingPage />
-    </div>
-  );
+    <p>
+      Hola admin
+    </p>
+  )
 }
-
-export default SetupPage;
