@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 
 import { stripe } from "@/lib/stripe";
 import prismadb from "@/lib/prismadb";
+import OrdersPage from '../../../(dashboard)/[storeId]/(routes)/orders/page';
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -47,7 +48,7 @@ export async function POST(
     });
   });
 
-  const order = await prismadb.order.create({
+  const OrdersPage = await prismadb.orders.create({
     data: {
       storeId: params.storeId,
       isPaid: false,
