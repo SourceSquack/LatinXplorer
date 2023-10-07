@@ -12,7 +12,7 @@ export async function POST(
 
     const body = await req.json();
 
-    const { name, price, categoryId, colorId, sizeId, images, isFeatured, isArchived } = body;
+    const { name, price, categoryId, colorId, sizeId, images, isFeatured, isArchived, inventory } = body;
 
     if (!userId) {
       return new NextResponse("Unauthenticated", { status: 403 });
@@ -42,6 +42,10 @@ export async function POST(
       return new NextResponse("Size id is required", { status: 400 });
     }
 
+    if (!inventory) {
+      return new NextResponse("Inventory is required", { status: 400 });
+    }
+
     if (!params.storeId) {
       return new NextResponse("Store id is required", { status: 400 });
     }
@@ -66,6 +70,7 @@ export async function POST(
         categoryId,
         colorId,
         sizeId,
+        inventory,
         storeId: params.storeId,
         images: {
           createMany: {
