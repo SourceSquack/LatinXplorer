@@ -1,18 +1,17 @@
 import { Urbanist } from 'next/font/google'
 
-import ModalProvider from '@/providers/modal-provider'
-import ToastProvider from '@/providers/toast-provider'
-import Navbar from '@/components/navbar'
-import Footer from '@/components/footer'
-
 import './globals.css'
 
-const font = Urbanist({ subsets: ['latin'] })
+import Footer from '@/components/footer'
+import Navbar from '@/components/navbar'
+
+const inter = Urbanist({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Latin Xplorer',
-  description: 'Store - The place for all your purchases.',
+  title: 'Cardi Lingerie - Tienda de Lencería en Medellín',
+  description: 'Encuentra la mejor selección de lencería para damas en Medellín. Cardi Lingerie ofrece una amplia gama de productos elegantes y cómodos para realzar tu estilo. ¡Descubre nuestra colección hoy!',
 }
+
 
 export default function RootLayout({
   children,
@@ -21,9 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={font.className}>
-        <ToastProvider />
-        <ModalProvider />
+      <body className={inter.className}>
         <Navbar />
         {children}
         <Footer />
