@@ -39,7 +39,7 @@ export async function POST(
     line_items.push({
       quantity: 1,
       price_data: {
-        currency: 'USD',
+        currency: 'COP',
         product_data: {
           name: product.name,
         },
@@ -74,7 +74,7 @@ export async function POST(
     success_url: `${process.env.FRONTEND_STORE_URL}/cart?success=1`,
     cancel_url: `${process.env.FRONTEND_STORE_URL}/cart?canceled=1`,
     metadata: {
-      orderId: order.id
+      orderId: OrdersPage.id
     },
   });
 
