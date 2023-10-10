@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 
 import { stripe } from "@/lib/stripe";
 import prismadb from "@/lib/prismadb";
-import OrdersPage from '../../../(dashboard)/[storeId]/(routes)/orders/page';
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
