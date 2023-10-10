@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 
-const formatter = new Intl.NumberFormat('es-CO', {
+const formatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
-  currency: 'COP',
+  currency: 'USD',
 });
 
 interface CurrencyProps {
